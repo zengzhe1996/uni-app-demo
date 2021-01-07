@@ -5,7 +5,7 @@
 				<swiper class="swiper" @change="changeSwiper" :vertical="vertical" :circular="circular" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 				 :duration="duration">
 					<swiper-item v-for="item in dataList" :key="item.id">
-						<mVideo :item="item" v-if="item.show"></mVideo>
+						<mVideo :item="item" v-if="item.show" :currentId="currentId"></mVideo>
 						<!-- <view class="swiper-item">
 							<video id="myVideo" class="video" :src="item.path" controls></video>
 						</view> -->
@@ -28,7 +28,7 @@
 				indicatorDots: false, // 指示点
 				autoplay: false, // 自动播放
 				vertical: true, // 是否为纵向
-				circular: true, // 是否循环滑动
+				circular: false, // 是否循环滑动
 				interval: 2000,
 				duration: 500,
 				dataList: [
@@ -39,10 +39,24 @@
 					},
 					{
 						id: '2',
-						path: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-uni-app-doc/360e4b20-4f4b-11eb-8a36-ebb87efcf8c0.mp4',
+						path: 'https://appvod.lizanstar.cn/b6e95f26f74b46869f6faa1e4a860e18/6f93c79247f044a5a00fb73fb8f71bad.m3u8',
+						// path: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-uni-app-doc/360e4b20-4f4b-11eb-8a36-ebb87efcf8c0.mp4',
+						show: true
+					},
+					{
+						id: '3',
+						path: 'https://appvod.lizanstar.cn/b6e95f26f74b46869f6faa1e4a860e18/6f93c79247f044a5a00fb73fb8f71bad.m3u8',
+						// path: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-uni-app-doc/360e4b20-4f4b-11eb-8a36-ebb87efcf8c0.mp4',
+						show: false
+					},
+					{
+						id: '4',
+						path: 'https://appvod.lizanstar.cn/b6e95f26f74b46869f6faa1e4a860e18/6f93c79247f044a5a00fb73fb8f71bad.m3u8',
+						// path: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-uni-app-doc/360e4b20-4f4b-11eb-8a36-ebb87efcf8c0.mp4',
 						show: false
 					}
-				]
+				],
+				currentId: '1'
 			}
 		},
 		methods: {
@@ -58,11 +72,21 @@
 			durationChange(e) {
 				this.duration = e.target.value
 			},
+			// 滑动swiper结束
 			changeSwiper(e) {
 				console.log(e.detail.current);
+				this.currentId = this.dataList[e.detail.current].id
 				this.dataList.forEach(item => {
 					item.show = false
 				})
+				if(e.detail.current === 0){
+					this.dataList[e.detail.current + 1].show = true
+				}else if(e.detail.current === this.dataList.length - 1){
+					this.dataList[e.detail.current - 1].show = true
+				}else{
+					this.dataList[e.detail.current + 1].show = true
+					this.dataList[e.detail.current - 1].show = true
+				}
 				this.dataList[e.detail.current].show = true
 			}
 		},

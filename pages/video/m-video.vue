@@ -11,11 +11,19 @@
 				default(){
 					return {}
 				}
+			},
+			currentId: {
+				type: String,
+				default: '1'
 			}
 		},
 		mounted() {
 			let videoContext = uni.createVideoContext('myVideo', this)
-			videoContext.play()
+			if(this.currentId === this.item.id){
+				videoContext.play()
+			}else{
+				videoContext.stop()
+			}
 		}
 	}
 </script>
