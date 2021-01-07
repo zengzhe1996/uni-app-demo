@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "uni-app-video",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "m-video": "/pages/video/m-video"
+  }
+}

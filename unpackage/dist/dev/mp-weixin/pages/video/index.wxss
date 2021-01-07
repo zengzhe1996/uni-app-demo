@@ -1,0 +1,21 @@
+
+.wrapper.data-v-819da956 {
+	height: 100vh;
+	width: 100vw;
+}
+.page-section-spacing.data-v-819da956, .page-section.data-v-819da956, .swiper.data-v-819da956{
+	height: 100%;
+}
+.swiper-item.data-v-819da956 {
+	height: 100%;
+}
+.uni-bg-red.data-v-819da956 {
+	background: red;
+}
+.uni-bg-green.data-v-819da956 {
+	background: green;
+}
+.uni-bg-blue.data-v-819da956 {
+	background: blue;
+}
+

@@ -1,0 +1,10 @@
+
+.swiper-item.data-v-4c308a5e {
+	height: 100%;
+}
+.video.data-v-4c308a5e{
+	height: 100%;
+	width: 100%;
+	background-color: black;
+}
+
