@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/video/index",
     "pages/index/index",
+    "pages/video/index",
+    "pages/list/index",
     "pages/mine/index/index"
   ],
   "subPackages": [],
@@ -18,11 +19,16 @@
         "text": "首页"
       },
       {
+        "pagePath": "pages/list/index",
+        "text": "列表"
+      },
+      {
         "pagePath": "pages/mine/index/index",
         "text": "我的"
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap56.json"
+  "usingComponents": {
+    "mescroll-body": "/components/mescroll-uni/mescroll-body"
+  }
 }
