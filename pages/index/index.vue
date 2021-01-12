@@ -4,6 +4,7 @@
 		<view class="text-area">
 			<text class="title">{{title}}</text>
 		</view>
+		<button type="default" @click="gotoVideo">video</button>
 		<button type="default" open-type="getUserInfo" @getuserinfo="uniLogin">微信登录</button>
 	</view>
 </template>
@@ -44,6 +45,11 @@
 						console.log(err);
 					}
 				});
+			},
+			gotoVideo(){
+				uni.navigateTo({
+					url: '/pages/video/index'
+				})
 			}
 		}
 	}

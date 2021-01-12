@@ -133,14 +133,25 @@ var _default2 =
       default: '1' } },
 
 
+  data: function data() {
+    return {
+      videoContext: null };
+
+  },
+  watch: {
+    currentId: function currentId(newData, oldData) {
+      if (this.currentId === this.item.id) {
+        this.videoContext.play();
+      } else {
+        this.videoContext.stop();
+      }
+    } },
+
   mounted: function mounted() {
-    var videoContext = uni.createVideoContext('myVideo', this);
-    if (this.currentId === this.item.id) {
-      videoContext.play();
-    } else {
-      videoContext.stop();
-    }
-  } };exports.default = _default2;
+    this.videoContext = uni.createVideoContext('myVideo', this);
+    this.videoContext.play();
+  },
+  methods: {} };exports.default = _default2;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

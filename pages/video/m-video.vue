@@ -1,6 +1,6 @@
 <template>
 	<view class="swiper-item">
-		<video id="myVideo" class="video" :src="item.path" controls></video>
+		<video id="myVideo" class="video" :src="item.path" :enable-play-gesture="true" controls></video>
 	</view>
 </template>
 
@@ -17,13 +17,25 @@
 				default: '1'
 			}
 		},
-		mounted() {
-			let videoContext = uni.createVideoContext('myVideo', this)
-			if(this.currentId === this.item.id){
-				videoContext.play()
-			}else{
-				videoContext.stop()
+		data(){
+			return{
+				videoContext: null
 			}
+		},
+		watch: {
+			currentId(newData, oldData){
+				if(this.currentId === this.item.id){
+					this.videoContext.play()
+				}else{
+					this.videoContext.stop()
+				}
+			}
+		},
+		mounted() {
+			this.videoContext = uni.createVideoContext('myVideo', this)
+			this.videoContext.play()
+		},
+		methods: {
 		}
 	}
 </script>
