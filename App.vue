@@ -12,7 +12,8 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
+	@import "uview-ui/index.scss";
 	page{
 		width: 100vw;
 		height: 100vh;

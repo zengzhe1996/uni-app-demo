@@ -30,5 +30,6 @@
   },
   "usingComponents": {
     "mescroll-body": "/components/mescroll-uni/mescroll-body"
-  }
+  },
+  "sitemapLocation": "sitemap62.json"
 }

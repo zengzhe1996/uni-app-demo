@@ -4,16 +4,45 @@
 		<view class="text-area">
 			<text class="title">{{title}}</text>
 		</view>
-		<button type="default" @click="gotoVideo">video</button>
+		<u-button type="success" @click="gotoVideo">video</u-button>
 		<button type="default" open-type="getUserInfo" @getuserinfo="uniLogin">微信登录</button>
+		<view class="swiper-box">
+			<swiper class="swiper" :indicator-dots="false" :autoplay="false" :interval="interval" :vertical="true" :duration="duration" :display-multiple-items="2">
+				<swiper-item class="swiper-item">
+					<view class="uni-bg">A</view>
+				</swiper-item>
+				<swiper-item class="swiper-item">
+					<view class="uni-bg">B</view>
+				</swiper-item>
+				<swiper-item class="swiper-item">
+					<view class="uni-bg">C</view>
+				</swiper-item>
+			</swiper>
+		</view>
+		<u-popup v-model="show" mode="bottom" height="500rpx" border-radius="20" closeable close-icon="close-circle" close-icon-color="#66666666" close-icon-size="40">
+			<myslot>
+				<div slot="header">123</div>
+				<div slot="footer">456</div>
+			</myslot>
+		</u-popup>
 	</view>
 </template>
 
 <script>
+	import myslot from './components/slot.vue'
+	
 	export default {
+		components: {
+			myslot
+		},
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				show: false,
+				indicatorDots: true,
+				autoplay: true,
+				interval: 2000,
+				duration: 500
 			}
 		},
 		onLoad() {
@@ -47,6 +76,8 @@
 				});
 			},
 			gotoVideo(){
+				this.show = true;
+				return
 				uni.navigateTo({
 					url: '/pages/video/index'
 				})
@@ -55,7 +86,20 @@
 	}
 </script>
 
-<style>
+<style lang="scss" scoped>
+	.swiper-box{
+		height: 500rpx;
+		width: 100%;
+	}
+	.swiper-item{
+		padding-bottom: 20rpx;
+		box-sizing: border-box;
+		.uni-bg{
+			height: 100%;
+			border: 2rpx solid red;
+			box-sizing: border-box;
+		}
+	}
 	.content {
 		display: flex;
 		flex-direction: column;

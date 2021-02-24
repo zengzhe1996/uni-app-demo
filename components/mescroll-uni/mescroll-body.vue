@@ -18,8 +18,8 @@
 			<!-- <mescroll-down :option="mescroll.optDown" :type="downLoadType" :rate="downRate"></mescroll-down> -->
 			<view v-if="mescroll.optDown.use" class="mescroll-downwarp" :style="{'background':mescroll.optDown.bgColor,'color':mescroll.optDown.textColor}">
 				<view class="downwarp-content">
-					<!-- <view class="downwarp-progress mescroll-wxs-progress" :class="{'mescroll-rotate': isDownLoading}" :style="{'border-color':mescroll.optDown.textColor, 'transform': downRotate}"></view> -->
-					<image class="downwarp-image" src="../../static/image/loading.gif" mode=""></image>
+					<view class="downwarp-progress mescroll-wxs-progress" :class="{'mescroll-rotate': isDownLoading}" :style="{'border-color':mescroll.optDown.textColor, 'transform': downRotate}"></view>
+					<!-- <image class="downwarp-image" src="../../static/image/loading.gif" mode=""></image> -->
 					<view class="downwarp-tip">{{downText}}</view>
 				</view>
 			</view>
